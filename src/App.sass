@@ -1,0 +1,135 @@
+@import 'Reset'
+
+.Turdle
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  padding-top: 10px
+
+  .modal
+    position: absolute
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background: #e5e5e586
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &-inner
+      padding: 20px
+      background: white
+      border-radius: 5px
+      text-transform: uppercase
+      margin-bottom: 30%
+      z-index: 1
+      display: flex
+      flex-direction: column
+      grid-gap: 20px
+      align-items: center
+
+      p
+        font-weight: bold
+
+      .button
+        padding: 10px
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px
+        border-radius: 5px
+        cursor: pointer
+
+        &:active
+          background: gray
+          color: white
+
+  h1
+    padding-bottom: 20px
+
+  .guessing-grid
+    padding-bottom: 30px
+    display: flex
+    flex-direction: column
+    grid-gap: 10px
+
+    .row
+      display: flex
+      grid-gap: 10px
+
+
+      .guess-tile
+        height: 45px
+        width: 40px
+        font-size: 24px
+        border-radius: 5px
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px
+        background: #f8f8f8
+        display: flex
+        justify-content: center
+        align-items: center
+        text-transform: uppercase
+
+        @keyframes squish
+          0%
+            transform: rotateX(0deg) scale(0)
+            opacity: 0
+
+          50% 
+            transform: rotateX(180deg) scale(1)
+            opacity: 0.5
+
+          100%
+            transform: rotateX(360deg) scale(1)
+            opacity: 1
+
+        &.guessed
+          animation-name: squish
+          animation-duration: 1s
+
+        &.next-up
+          border: 2px solid black
+
+  .keyboard
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-bottom: 40px
+    width: 100%
+    max-width: 400px
+    padding: 0 0px
+
+    .row
+      margin-bottom: 10px
+      display: flex
+      width: 100%
+
+      .key
+        font-size: 12px
+        width: 100%
+        padding: 0 10px
+        height: 50px
+        margin-right: 5px
+        border-radius: 5px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        transition: transform .2s
+        background: #dbdbdb
+        text-transform: uppercase
+
+        &:active
+          background: gray
+          color: white
+          transform: scale(0.9)
+
+        &.green
+          background: #24e017
+
+        &.yellow
+          background: #e9d73a
+
+        &.poo
+          background: #8e24247f
